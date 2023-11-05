@@ -7,6 +7,7 @@ import NoPage from "./Components/Nopag/Nopage";
 import AddBlog from "./Components/AddBlog/Addblog";
 import Update from "./Components/Update/Update";
 import AllBlog from "./Components/AllBlog/AllBlog";
+import Wishlist from "./Components/Wishlist/Wishlist";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "/updateBlog",
                 element: <Update></Update>
+            },
+            {
+                path: "/wishlist",
+                element: <Wishlist></Wishlist>
             },
             {
                 path: "/allBlogs",
