@@ -1,14 +1,48 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const NavBer = () => {
+    const { user, Logout } = useContext(AuthContext);
+    const handelButton = () => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, LogOut'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Logout()
+                    .then(result => {
+                        console.log(result);
+                        Swal.fire('Logout succesfull');
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
+        })
+
+
+
+    }
     const link = <>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/">Home</NavLink></li>
-        <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
+        {
+            user && <>
+                <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
+                <li className="font-semibold text-lg dark:text-white"><NavLink to="/updateBlog">Update Blog</NavLink></li>
+            </>
+
+        }
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/allBlogs">All Blogs</NavLink></li>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/featureBlogs">Feature Blogs</NavLink></li>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/wishlist">Wishlist</NavLink></li>
-        <li className="font-semibold text-lg dark:text-white"><NavLink to="/login">Login</NavLink></li>
-        <li className="font-semibold text-lg dark:text-white"><NavLink to="/register" >Register</NavLink></li>
     </>
     return (
         <div>
@@ -36,20 +70,19 @@ const NavBer = () => {
                 </div>
                 <div className="navbar-end gap-1">
                     <div className="hidden md:block dark:text-white ">
-                        {/* {
+                        {
                             user && <p>{user?.email.slice(0, 10)}</p>
-                        } */}
+                        }
                     </div>
 
-                    {/* {
+                    {
                         user && <img className="w-10 h-10 md:w-14 md:h-14 mx-1 rounded-full" src={user?.photoURL} alt="" />
 
-                    } */}
-                    {/* {
-                        user ? <button onClick={handelButton} className="btn">LogOut</button> : <Link to="/login" className="btn">Login</Link>
-                    } */}
+                    }
+                    {
+                        user ? <button onClick={handelButton} className="btn bg-yellow-500 border-none text-white">LogOut</button> : <Link to="/login" className="btn bg-yellow-500 border-none text-white">Login</Link>
+                    }
 
-                    {/* <input onClick={handelClick} type="checkbox" className="toggle" /> */}
                 </div>
             </div>
         </div>
