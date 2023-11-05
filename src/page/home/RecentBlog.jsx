@@ -4,7 +4,7 @@ import Blog from "./Blog";
 const RecentBlog = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/blog')
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);
