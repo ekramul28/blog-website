@@ -1,9 +1,19 @@
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import Swal from "sweetalert2";
 
 const Booking = ({ booking }) => {
     const { _id, category, image, short_description, title } = booking;
     const handelDelete = (id) => {
         console.log(id)
+        axios.delete(`http://localhost:5000/wishlist/${id}`)
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    Swal.fire('Login Successful')
+                }
+            }).catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div>
