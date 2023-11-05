@@ -15,7 +15,7 @@ const Wishlist = () => {
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">
             {
-                allBooking.map(booking => <Booking key={booking._id} booking={booking}></Booking>)
+                allBooking?.map(booking => <Booking key={booking._id} booking={booking} setAllBooking={setAllBooking} allBooking={allBooking}></Booking>)
             }
         </div>
     );

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from "sweetalert2";
+import { Link } from 'react-router-dom';
 
 
 const AllBlogs = ({ blog }) => {
@@ -33,7 +34,7 @@ const AllBlogs = ({ blog }) => {
                     <h1 className="font-semibold">{category}</h1>
                     <p >{short_description}</p>
                     <div className="card-actions justify-end gap-3">
-                        <button className="btn bg-yellow-500 text-white">Details</button>
+                        <Link to={`/details/${_id}`}> <button className="btn bg-yellow-500 text-white">Details</button></Link>
                         <button onClick={() => handelWishlist(_id)} className="btn bg-yellow-500 text-white">Wishlist</button>
                     </div>
                 </div>
