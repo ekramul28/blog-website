@@ -6,6 +6,7 @@ import Register from "./Components/Header/Login/Register/Register";
 import NoPage from "./Components/Nopag/Nopage";
 import AddBlog from "./Components/AddBlog/Addblog";
 import Update from "./Components/Update/Update";
+import AllBlog from "./Components/AllBlog/AllBlog";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
             {
                 path: "/updateBlog",
                 element: <Update></Update>
+            },
+            {
+                path: "/allBlogs",
+                element: <AllBlog></AllBlog>,
+                // loader: () => fetch('http://localhost:5000/blog')
             }
         ]
     },

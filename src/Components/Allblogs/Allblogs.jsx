@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-const Blog = ({ blog }) => {
-    // const slice = blog.slice(0, 3)
+
+const AllBlogs = ({ blog }) => {
     const { category, image, short_description, title } = blog
+
     return (
         <div className="">
             <div className="card  bg-base-100 shadow-xl h-[620px]">
@@ -21,8 +22,8 @@ const Blog = ({ blog }) => {
         </div >
     );
 };
-Blog.propTypes = {
+AllBlogs.propTypes = {
     blog: PropTypes.object
 }
 
-export default Blog;
+export default AllBlogs;
