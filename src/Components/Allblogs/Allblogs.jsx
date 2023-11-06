@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const AllBlogs = ({ blog }) => {
     const { user } = useContext(AuthContext)
-    const { _id, category, image, short_description, title } = blog
+    const { _id, category, image, short_description, title, description } = blog
     const handelWishlist = (id) => {
         const data = { id, category, image, short_description, title, email: user?.email }
         console.log(user?.email)
@@ -33,6 +33,7 @@ const AllBlogs = ({ blog }) => {
                     </h2>
                     <h1 className="font-semibold">{category}</h1>
                     <p >{short_description}</p>
+                    {/* <p>{description}</p> */}
                     <div className="card-actions justify-end gap-3">
                         <Link to={`/details/${_id}`}> <button className="btn bg-yellow-500 text-white">Details</button></Link>
                         <button onClick={() => handelWishlist(_id)} className="btn bg-yellow-500 text-white">Wishlist</button>

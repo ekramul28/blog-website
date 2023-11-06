@@ -36,7 +36,6 @@ const NavBer = () => {
         {
             user && <>
                 <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
-                <li className="font-semibold text-lg dark:text-white"><NavLink to="/updateBlog">Update Blog</NavLink></li>
             </>
 
         }

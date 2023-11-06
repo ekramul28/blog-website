@@ -9,6 +9,7 @@ import Update from "./Components/Update/Update";
 import AllBlog from "./Components/AllBlog/AllBlog";
 import Wishlist from "./Components/Wishlist/Wishlist";
 import Details from "./page/home/Details";
+import ProtectRout from "./Components/ProtectRout/ProtectRout";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,8 +38,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
             },
             {
-                path: "/updateBlog",
-                element: <Update></Update>
+                path: "/updateBlog/:id",
+                element: <ProtectRout><Update></Update></ProtectRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
+
             },
             {
                 path: "/wishlist",
