@@ -10,7 +10,7 @@ const AllBlogs = ({ blog }) => {
     const { user } = useContext(AuthContext)
     const { _id, category, image, short_description, title } = blog
     const handelWishlist = (id) => {
-        const data = { category, image, short_description, title, email: user?.email }
+        const data = { id, category, image, short_description, title, email: user?.email }
         console.log(user?.email)
         axios.post('http://localhost:5000/wishlist', data)
             .then(res => {

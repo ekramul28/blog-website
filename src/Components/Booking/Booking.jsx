@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
 
 const Booking = ({ booking, setAllBooking, allBooking }) => {
-    const { _id, category, image, short_description, title } = booking;
+    const { id, _id, category, image, short_description, title } = booking;
     const handelDelete = (id) => {
         console.log(id)
 
@@ -48,7 +48,7 @@ const Booking = ({ booking, setAllBooking, allBooking }) => {
                         <h1 className="font-semibold">{category}</h1>
                         <p >{short_description}</p>
                         <div className="card-actions justify-end gap-3">
-                            <Link to={`/details/${_id}`}> <button className="btn bg-yellow-500 text-white">Details</button></Link>
+                            <Link to={`/details/${id}`}> <button className="btn bg-yellow-500 text-white">Details</button></Link>
                             <button onClick={() => handelDelete(_id)} className="btn bg-yellow-500 text-white">Delete</button>
                         </div>
                     </div>
