@@ -1,7 +1,31 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
+import axios from "axios";
 
 const Details = () => {
-    const data = useLoaderData()
+    const { user } = useContext(AuthContext);
+    const data = useLoaderData();
+    const handelForm = (e) => {
+        e.preventDefault()
+        const value = e.target.area.value;
+        const comment = { email: user?.email, photoURL: user?.photoURL, value };
+
+        e.target.reset()
+        axios.post('http://localhost:5000/comment', comment)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.insertedId) {
+                    Swal.fire(
+                        'Comment Successful',
+                        'success'
+                    )
+                }
+            }).catch(error => {
+                console.log(error);
+            })
+    }
     const { category, image, short_description, title, description } = data;
     console.log(data)
     return (
@@ -21,7 +45,7 @@ const Details = () => {
             <div className="bg-green-500 p-20">
                 <h1 className="text-3xl text-center font-bold">Write Your Comment</h1>
                 <div className="  flex justify-around items-center ">
-                    <form>
+                    <form onSubmit={handelForm}>
                         {/* <div >
                             <fieldset className="form-control">
                                 <label className="label ">
@@ -48,7 +72,7 @@ const Details = () => {
                                     <span className=" text-xl">Enter your comment</span>
                                 </label>
                                 <div className="">
-                                    <textarea className=" border-2 p-3 rounded-lg  w-60 lg:w-[400px] pr-16" name="area" id="" cols="30" rows="5" placeholder="write your comment"></textarea>
+                                    <textarea className=" border-2 p-3 rounded-lg  w-60 lg:w-[400px] pr-16" name="area" id="" cols="30" rows="5" placeholder="write your comment" required></textarea>
                                 </div>
                             </fieldset>
                         </div>
