@@ -56,7 +56,8 @@ const NavBer = () => {
                         </ul>
                     </div>
                     <div className="flex items-center gap-2">
-                        <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/5M3J5yD/R-4.png" alt="" />
+                        {/* <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/MhTpsSh/images-5-removebg-preview.png" alt="" /> */}
+                        <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/vB14ZwB/images-removebg-preview.png" alt="" />
                         <h1 className="text-2xl font-semibold text-yellow-700 hidden md:block">Random</h1>
 
 
