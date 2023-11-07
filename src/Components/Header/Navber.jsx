@@ -33,12 +33,7 @@ const NavBer = () => {
     }
     const link = <>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/">Home</NavLink></li>
-        {
-            user && <>
-                <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
-            </>
-
-        }
+        <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/allBlogs">All Blogs</NavLink></li>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/featureBlogs">Feature Blogs</NavLink></li>
         <li className="font-semibold text-lg dark:text-white"><NavLink to="/wishlist">Wishlist</NavLink></li>
@@ -58,7 +53,7 @@ const NavBer = () => {
                     <div className="flex items-center gap-2">
                         {/* <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/MhTpsSh/images-5-removebg-preview.png" alt="" /> */}
                         <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/vB14ZwB/images-removebg-preview.png" alt="" />
-                        <h1 className="text-2xl font-semibold text-yellow-700 hidden md:block">Random</h1>
+                        <h1 className="text-2xl font-semibold text-yellow-500"><span className="text-5xl text-yellow-800">R</span>andom</h1>
 
 
                     </div>

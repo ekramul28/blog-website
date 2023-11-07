@@ -6,17 +6,17 @@ const Footer = () => {
             <div >
                 <footer className="footer footer-center p-10 bg-base-200 text-base-content dark:bg-slate-800 rounded">
                     <div className="flex items-center gap-2">
-                        <img className="w-20 h-20 rounded-full" src="https://i.ibb.co/5M3J5yD/R-4.png" alt="" />
-                        <h1 className="text-2xl font-semibold text-yellow-700">Random</h1>
+                        <img className="w-10 h-10 md:w-20 md:h-20 rounded-full" src="https://i.ibb.co/vB14ZwB/images-removebg-preview.png" alt="" />
+                        <h1 className="text-2xl font-semibold text-yellow-500"><span className="text-5xl text-yellow-800">R</span>andom</h1>
 
 
                     </div>
                     <nav className=" md:grid md:grid-flow-col gap-4 list-none  ">
                         <li className="font-semibold text-lg dark:text-white"><NavLink to="/">Home</NavLink></li>
-                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/addProduct">Add Product</NavLink></li>
-                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/myCard">My Cart</NavLink></li>
-                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/login">Login</NavLink></li>
-                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/register" >Register</NavLink></li>
+                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/addBlog">Add Blog</NavLink></li>
+                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/allBlogs">All Blogs</NavLink></li>
+                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/featureBlogs">Feature Blogs</NavLink></li>
+                        <li className="font-semibold text-lg dark:text-white"><NavLink to="/wishlist">Wishlist</NavLink></li>
                     </nav>
                     <nav>
                         <div className="grid grid-flow-col gap-4 dark:text-white">

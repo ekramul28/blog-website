@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from "sweetalert2";
 import { FcGoogle } from 'react-icons/fc';
@@ -7,6 +7,9 @@ import { FcGoogle } from 'react-icons/fc';
 const Login = () => {
     const { login, logInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate()
+    console.log(location);
     const handelForm = e => {
         e.preventDefault();
         const form = e.target;
@@ -20,6 +23,7 @@ const Login = () => {
                 if (result.user) {
                     Swal.fire('Login Successful');
                     form.reset();
+                    navigate(location?.state ? location?.state : "/")
                 }
             })
             .catch((error) => {

@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/details/:id",
-                element: <Details></Details>,
+                element: <ProtectRout><Details></Details></ProtectRout>,
                 loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
             },
             {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/wishlist",
-                element: <Wishlist></Wishlist>
+                element: <ProtectRout><Wishlist></Wishlist></ProtectRout>
             },
             {
                 path: "/featureBlogs",
