@@ -12,7 +12,7 @@ const Blog = ({ blog }) => {
     const handelWishlist = () => {
         const data = { category, image, short_description, title, email: user?.email }
         console.log(user?.email)
-        axios.post('https://blog-website-server-zeta.vercel.app/wishlist', data)
+        axios.post(' http://localhost:5000/wishlist', data)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

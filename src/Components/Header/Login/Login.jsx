@@ -19,12 +19,10 @@ const Login = () => {
         setError('')
         login(email, password)
             .then((result) => {
-
                 if (result.user) {
                     Swal.fire('Login Successful');
                     form.reset();
                     navigate(location?.state ? location?.state : "/")
-
                 }
             })
             .catch((error) => {
@@ -39,6 +37,7 @@ const Login = () => {
                 if (result.user) {
                     Swal.fire('Login Successful')
                     console.log(result.user)
+                    navigate(location?.state ? location?.state : "/")
 
                 }
 

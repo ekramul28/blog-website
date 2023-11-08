@@ -8,15 +8,11 @@ const Wishlist = () => {
     const [allBooking, setAllBooking] = useState([])
     useEffect(() => {
 
-        // axios.get(`https://blog-website-server-zeta.vercel.app/wishlist?email=${user?.email}`, { withCredentials: true })
-        //     .then(res => {
-        //         setAllBooking(res.data)
-        //     })
-        fetch(`https://blog-website-server-zeta.vercel.app/wishlist?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setAllBooking(data)
+        axios.get(` http://localhost:5000/wishlist?email=${user?.email}`, { withCredentials: true })
+            .then(res => {
+                setAllBooking(res.data)
             })
+
     }, [user?.email])
     return (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">

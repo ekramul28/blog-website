@@ -8,7 +8,9 @@ const ProtectRout = ({ children }) => {
     const location = useLocation()
     console.log(location.pathname)
     if (loading) {
-        return <span className="loading loading-spinner loading-lg"></span>
+
+        <span className="loading loading-spinner loading-lg"></span>
+        return
     }
 
     if (user) {

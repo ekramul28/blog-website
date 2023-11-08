@@ -5,7 +5,7 @@ const RecentBlog = () => {
     const [blogs, setBlogs] = useState([]);
     console.log()
     useEffect(() => {
-        fetch('https://blog-website-server-zeta.vercel.app/blog')
+        fetch('http://localhost:5000/blog')
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);

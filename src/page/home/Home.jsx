@@ -4,16 +4,31 @@ import Banner from "./Banner";
 import Footer from "./Footer";
 import NewSletter from "./NewSleter";
 import RecentBlog from "./RecentBlog";
-
+import { motion } from "framer-motion"
 const Home = () => {
     return (
+
         <div>
-            <Banner></Banner>
-            <RecentBlog></RecentBlog>
-            <NewSletter></NewSletter>
-            <StartABlog></StartABlog>
-            <AboutUs></AboutUs>
-            <Footer></Footer>
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+            >
+                <Banner></Banner>
+                <RecentBlog></RecentBlog>
+
+            </motion.div>
+
+            <motion.div
+                animate={{ x: [0, 100, 0] }}
+            >
+                <NewSletter></NewSletter>
+                <StartABlog></StartABlog>
+                <AboutUs></AboutUs>
+                <Footer></Footer>
+            </motion.div>
+
+
         </div>
     );
 };

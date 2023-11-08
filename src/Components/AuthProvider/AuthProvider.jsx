@@ -29,18 +29,18 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            const userEmail = currentUser?.email || user.email;
-            const user = { email: userEmail };
+            const userEmail = currentUser?.email || user?.email;
+            const lmUser = { email: userEmail };
             setLoading(false);
-            setUser(currentUser);
+            setUser(currentUser)
             if (currentUser) {
-                axios.post('https://blog-website-server-zeta.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('http://localhost:5000/jwt', lmUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })
 
             } else {
-                axios.post('https://blog-website-server-zeta.vercel.app/logout', user, { withCredentials: true })
+                axios.post('http://localhost:5000/logout', lmUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
