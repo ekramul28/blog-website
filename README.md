@@ -2,7 +2,7 @@
 <h1>live link : https://blog-website-9301a.web.app/</h1>
 
 
-<h2>explaining your project</h2>
+<h2>explaining my project</h2>
 <ul>
   <li>Navbar</li>
   <li>e Login and Register</li>
