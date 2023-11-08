@@ -1,12 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Booking from "../Booking/Booking";
+import axios from "axios";
 
 const Wishlist = () => {
     const { user } = useContext(AuthContext);
     const [allBooking, setAllBooking] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/wishlist?email=${user?.email}`)
+
+        // axios.get(`https://blog-website-server-zeta.vercel.app/wishlist?email=${user?.email}`, { withCredentials: true })
+        //     .then(res => {
+        //         setAllBooking(res.data)
+        //     })
+        fetch(`https://blog-website-server-zeta.vercel.app/wishlist?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAllBooking(data)

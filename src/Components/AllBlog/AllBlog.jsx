@@ -6,7 +6,7 @@ const AllBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/blog')
+        fetch('https://blog-website-server-zeta.vercel.app/blog')
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);
@@ -33,8 +33,8 @@ const AllBlog = () => {
 
     return (
         <div >
-            <div className="m-10 flex justify-around items-center">
-                <form onSubmit={handelSelect}>
+            <div className="m-10 lg:flex justify-around items-center ">
+                <form onSubmit={handelSelect} className="flex">
                     <select name="category" className="input input-bordered w-60 md:w-[300px] lg:w-[400px] pr-16" required>
                         <option value="travel">Travel</option>
                         <option value="photography">Photography</option>
@@ -43,8 +43,8 @@ const AllBlog = () => {
                     </select>
                     <input type="submit" value="filter" className="btn bg-yellow-500 text-white" />
                 </form>
-                <div>
-                    <form onSubmit={handelChange}>
+                <div className="mt-4">
+                    <form onSubmit={handelChange} className="flex">
                         <input className="input input-bordered w-60 md:w-[300px] lg:w-[400px] pr-16" type="text" name="text" id="" placeholder="Search" />
                         <input type="submit" value="Search" className="btn bg-yellow-500 text-white" />
                     </form>

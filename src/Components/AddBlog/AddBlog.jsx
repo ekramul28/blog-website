@@ -16,7 +16,7 @@ const AddBlog = () => {
         const longDescription = form.longDescription.value;
         const value = { email: user?.email, name, image, category, short, longDescription }
         console.log(value)
-        axios.post('http://localhost:5000/addBlog', value)
+        axios.post('https://blog-website-server-zeta.vercel.app/addBlog', value)
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {

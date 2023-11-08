@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from "sweetalert2";
 import { FcGoogle } from 'react-icons/fc';
@@ -24,6 +24,7 @@ const Login = () => {
                     Swal.fire('Login Successful');
                     form.reset();
                     navigate(location?.state ? location?.state : "/")
+
                 }
             })
             .catch((error) => {

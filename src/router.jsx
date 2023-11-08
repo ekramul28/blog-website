@@ -36,12 +36,12 @@ const router = createBrowserRouter([
             {
                 path: "/details/:id",
                 element: <ProtectRout><Details></Details></ProtectRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-website-server-zeta.vercel.app/blog/${params.id}`)
             },
             {
                 path: "/updateBlog/:id",
                 element: <ProtectRout><Update></Update></ProtectRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`)
+                loader: ({ params }) => fetch(`https://blog-website-server-zeta.vercel.app/blog/${params.id}`)
 
             },
             {
@@ -51,12 +51,12 @@ const router = createBrowserRouter([
             {
                 path: "/featureBlogs",
                 element: <FeatureBlogs></FeatureBlogs>,
-                loader: () => fetch("http://localhost:5000/blog")
+                loader: () => fetch("https://blog-website-server-zeta.vercel.app/blog")
             },
             {
                 path: "/allBlogs",
                 element: <AllBlog></AllBlog>,
-                // loader: () => fetch('http://localhost:5000/blog')
+                // loader: () => fetch('https://blog-website-server-zeta.vercel.app/blog')
             }
         ]
     },

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../../../firebase";
+import axios from "axios";
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
@@ -28,8 +29,22 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user.email;
+            const user = { email: userEmail };
             setLoading(false);
             setUser(currentUser);
+            if (currentUser) {
+                axios.post('https://blog-website-server-zeta.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data)
+                    })
+
+            } else {
+                axios.post('https://blog-website-server-zeta.vercel.app/logout', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            }
         })
         return () => {
             unSubscribe();

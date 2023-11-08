@@ -13,7 +13,7 @@ const Details = () => {
     console.log(email, user?.email);
     const [comments, setComment] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/comment/${_id}`)
+        fetch(`https://blog-website-server-zeta.vercel.app/comment/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setComment(data);
@@ -27,7 +27,7 @@ const Details = () => {
         const comment = { email: user?.email, photoURL: user?.photoURL, value, id: _id };
 
         e.target.reset()
-        axios.post('http://localhost:5000/comment', comment)
+        axios.post('https://blog-website-server-zeta.vercel.app/comment', comment)
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {
@@ -36,7 +36,7 @@ const Details = () => {
                         'success'
                     )
 
-                    fetch(`http://localhost:5000/comment/${_id}`)
+                    fetch(`https://blog-website-server-zeta.vercel.app/comment/${_id}`)
                         .then(res => res.json())
                         .then(data => {
                             setComment(data);
