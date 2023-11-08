@@ -17,7 +17,7 @@ const Update = () => {
         const value = { name, image, category, short, longDescription }
         console.log(value);
 
-        axios.put(` http://localhost:5000/blog/${id}`, value)
+        axios.put(` https://blog-website-server-zeta.vercel.app/blog/${id}`, value)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {

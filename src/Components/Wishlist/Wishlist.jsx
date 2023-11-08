@@ -8,7 +8,7 @@ const Wishlist = () => {
     const [allBooking, setAllBooking] = useState([])
     useEffect(() => {
 
-        axios.get(` http://localhost:5000/wishlist?email=${user?.email}`, { withCredentials: true })
+        axios.get(` https://blog-website-server-zeta.vercel.app/wishlist?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAllBooking(res.data)
             })

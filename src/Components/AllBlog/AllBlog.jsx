@@ -6,7 +6,7 @@ const AllBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch(' http://localhost:5000/blog')
+        fetch(' https://blog-website-server-zeta.vercel.app/blog')
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);
@@ -18,14 +18,19 @@ const AllBlog = () => {
         e.preventDefault();
         const form = e.target;
         const category = form.category.value;
-        const filter = blogs.filter(blog => blog.category.toLowerCase() === category.toLowerCase());
-        setBlogs(filter);
-        console.log(filter)
+        fetch(` https://blog-website-server-zeta.vercel.app/blog?category=${category}`)
+            .then(res => res.json())
+            .then(data => {
+                setBlogs(data);
+
+            })
+
     }
     const handelChange = (e) => {
         e.preventDefault();
-        const value = e.target.text.value;
-        const filter = blogs.filter(blog => blog.title.toLowerCase().includes(value));
+        const search = e.target.text.value;
+
+        const filter = blogs.filter(blog => blog.title.toLowerCase().includes(search));
         setBlogs(filter);
         console.log(filter);
 
@@ -37,8 +42,8 @@ const AllBlog = () => {
                 <form onSubmit={handelSelect} className="flex">
                     <select name="category" className="input input-bordered w-60 md:w-[300px] lg:w-[400px] pr-16" required>
                         <option value="travel">Travel</option>
-                        <option value="photography">Photography</option>
-                        <option value="wellness">Wellness</option>
+                        <option value="Photography">Photography</option>
+                        <option value="Wellness">Wellness</option>
                         <option value="outKnowledge">OutKnowledge</option>
                     </select>
                     <input type="submit" value="filter" className="btn bg-yellow-500 text-white" />

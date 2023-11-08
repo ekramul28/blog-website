@@ -34,13 +34,13 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
             setUser(currentUser)
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', lmUser, { withCredentials: true })
+                axios.post('https://blog-website-server-zeta.vercel.app/jwt', lmUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })
 
             } else {
-                axios.post('http://localhost:5000/logout', lmUser, { withCredentials: true })
+                axios.post('https://blog-website-server-zeta.vercel.app/logout', lmUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
