@@ -29,10 +29,15 @@ const AllBlog = () => {
     const handelChange = (e) => {
         e.preventDefault();
         const search = e.target.text.value;
+        fetch(` https://blog-website-server-zeta.vercel.app/search?search=${search}`)
+            .then(res => res.json())
+            .then(data => {
+                setBlogs(data);
 
-        const filter = blogs.filter(blog => blog.title.toLowerCase().includes(search));
-        setBlogs(filter);
-        console.log(filter);
+            })
+        // const filter = blogs.filter(blog => blog.title.toLowerCase().includes(search));
+        // setBlogs(filter);
+        // console.log(filter);
 
     }
 
